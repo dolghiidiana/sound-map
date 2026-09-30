@@ -1,0 +1,25 @@
+Sound Map — recording attribution
+
+Title: Sound of rain
+Creator: Effib
+Recorded: 12 May 2014
+Source: https://commons.wikimedia.org/wiki/File:Sound_of_rain.ogg
+Original media: https://upload.wikimedia.org/wikipedia/commons/8/8a/Sound_of_rain.ogg
+Licence: Creative Commons Attribution-ShareAlike 3.0 Unported
+https://creativecommons.org/licenses/by-sa/3.0/
+Legal terms: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+The distributed rain-effib.ogg is the original downloaded file, unchanged.
+During playback the app makes a mono mix and a 0.5-second overlapping
+crossfade to soften the loop seam, and fixed peak calibration to 0.85;
+pan and gain are adjusted interactively.
+These audio adaptations are also offered under CC BY-SA 3.0.
+No endorsement by Effib is implied.
+
+You may share and adapt this recording, including commercially, under the
+licence conditions: attribution, a licence link, indication of changes,
+and ShareAlike for adaptations. Do not impose additional restrictions.
+Keep this notice with the recording and any redistributed audio adaptation.
+
+Source and licence checked and original downloaded: 30 September 2026.
+This is a first-slice listening candidate, not an approved final cafe asset.
