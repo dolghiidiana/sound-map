@@ -7,11 +7,11 @@ status: approved
 
 Build mode: learn, explicitly chosen by Diana. Pause for hands-on review after each verified slice; do not advance before the current slice works and is reviewed.
 
-The five slices below translate the technical blueprint's Verification and Build Order After Approval, explicitly approved by Diana when approving 4-spec. No second build-order approval is required. No slices are complete. Git initialized with Diana's explicit agreement. Slice 1 is in progress; no paid requests.
+The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 is next; no paid requests.
 
 ## Slices
 
-- [ ] **1. Move one sound and immediately hear it change**
+- [x] **1. Move one sound and immediately hear it change**
   Becomes usable: A local, calm circular map with one licensed recording, Play/Pause/Resume/Restart, and an expressive movable marker. Prepared test arrangement is clearly labelled.
   Why now: Proves the central audio risk before investing in the surrounding product; includes setup rather than a separate scaffolding step.
   PRD ref: `prd.md > Playback and Expressive Movement`, `prd.md > Look and Feel`
@@ -63,7 +63,7 @@ The five slices below translate the technical blueprint's Verification and Build
 
 ## Hands-on Checkpoints
 
-Slice 1 mechanical verification passed: four Node tests, production build, automated Edge browser/OfflineAudioContext checks. Details in slice-1-verification.md. Listening review pending; slice remains unchecked and its implementation commit waits for Diana's feedback.
+Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioContext checks and Diana's repeated listening review. No fixes requested. Checkpoint 50964e3. Slice 2's three-layer listening review remains required.
 
 - [ ] Early usable behavior explored — slice 1 immediate/smooth movement and slice 2 natural cafe loop listening before AI integration
 - [ ] Integrated real interpretation and creative choices explored — slice 3 model comparison
