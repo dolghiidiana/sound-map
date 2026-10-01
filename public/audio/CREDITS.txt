@@ -23,3 +23,26 @@ Keep this notice with the recording and any redistributed audio adaptation.
 
 Source and licence checked and original downloaded: 30 September 2026.
 This is a first-slice listening candidate, not an approved final cafe asset.
+
+SLICE 2 ADDITIONS (30 September 2026)
+
+Room Tone In An Apartment Living Room 2 — leonelmail
+https://freesound.org/people/leonelmail/sounds/329533/
+Public preview: https://cdn.freesound.org/previews/329/329533_4437257-hq.mp3
+File: room-leonelmail.mp3
+CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Playback edits: mono, half-second crossfade, fixed calibration, pan/level.
+
+Sweeping — randbsoundbites / R&B Sound Bites
+https://freesound.org/people/randbsoundbites/sounds/792417/
+Public preview: https://cdn.freesound.org/previews/792/792417_16968183-hq.mp3
+File: cleaning-randbsoundbites.mp3
+CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Creator describes a plastic indoor broom on concrete.
+Playback edits: mono, short edge fades, 1.5 seconds of leading and
+7.5 seconds of trailing silence, fixed calibration, pan/level.
+
+Downloaded preview files are unchanged on disk. The original downloadable
+masters were not obtained. CC0 allows reuse, modification and redistribution,
+including commercially. These credits do not imply creator endorsement.
+Rain above remains CC BY-SA 3.0; this collection is not wholly CC0.

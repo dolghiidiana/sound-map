@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { constrainPosition, soundParameters } from '../shared/mapping.js';
 import { prepareLoop } from '../src/audio/audioEngine.js';
+import { catalogue } from '../shared/catalogue.js';
 
 test('the map keeps off-map pointer movement bounded without changing its direction', () => {
   const p = constrainPosition({ x: 3, y: 4 });
@@ -38,4 +39,26 @@ test('loop preparation smooths a discontinuous wrap without clipping or empty ou
   assert.equal(output.length, 3500);
   assert.ok(Math.abs(output.at(-1) - output[0]) < 0.005);
   assert.ok(output.every(sample => Number.isFinite(sample) && Math.abs(sample) <= 0.851));
+});
+
+test('activity preparation preserves silent gaps and fades recording edges', () => {
+  const data = Float32Array.from({ length: 1000 }, () => 0.2);
+  let output;
+  const context = { createBuffer(channels, length, sampleRate) {
+    output = new Float32Array(length);
+    return { length, sampleRate, getChannelData: () => output };
+  } };
+  const loop = prepareLoop(context, { length: 1000, sampleRate: 1000, numberOfChannels: 1, getChannelData: () => data }, { kind: 'activity', leadSeconds: 1.5, gapSeconds: 7.5 });
+  assert.equal(loop.length, 10000);
+  assert.ok(output.slice(0, 1500).every(v => v === 0));
+  assert.ok(output.slice(2500).every(v => v === 0));
+  assert.equal(output[1500], 0);
+  assert.equal(output[2499], 0);
+  assert.ok(output[1800] > 0.8);
+});
+
+test('three maximum-position layers retain mix headroom without changing one another', () => {
+  const maximum = catalogue.reduce((sum, layer) => sum + layer.level * 0.85 * 0.8, 0);
+  assert.ok(maximum < 1);
+  assert.equal(new Set(catalogue.map(layer => layer.id)).size, 3);
 });

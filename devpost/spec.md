@@ -132,6 +132,8 @@ Proposed map: unit disk, listener (0,0), x/y in [-1,1], radius r=sqrt(x*x+y*y)<=
 
 Starting curve: presence=10^(-18*r/20), multiplied by fixed recording calibration. Outer edge is approximately 18 dB quieter than center, not automatically removed. This is a tuning proposal, not a verified distance illusion. One shared mapping function drives audio, saved relationships and reflection diffs.
 
+Slice 2 listening-approved adjustment: Cleaning alone has an additional reduction beyond radius 0.5. With t=clamp((r-0.5)/0.5,0,1), extra attenuation is 6*(3*t*t-2*t*t*t) dB. This leaves the inner half unchanged and reaches 24 dB total attenuation at the edge. Diana approved retaining this after hearing more natural recession. Cleaning remains within the same cafe, farther away and secondary; movement does not imply outdoors, walls or another acoustic space. Rain and Room retain the original curve. This is not a general mapping change; future actual-presence summaries must use the source's configured curve.
+
 Send latest pointer position to the audio engine directly at most once per animation frame, then update the visual state. Never recreate playback nodes on React renders. Smooth pan/gain toward targets with an initial 15 ms time constant, roughly 45 ms to reach 95%, before device latency. Retarget automation continuously with tested cancellation/holding behavior. No guaranteed end-to-end latency claim.
 
 ### Audio Engine and Shared Transport

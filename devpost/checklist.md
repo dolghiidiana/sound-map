@@ -7,6 +7,8 @@ status: approved
 
 Build mode: learn, explicitly chosen by Diana. Pause for hands-on review after each verified slice; do not advance before the current slice works and is reviewed.
 
+Session resumed at Diana's request during slice 2 listening review. Her feedback confirms natural sweeping pauses and audible positional movement with rain underneath. Full review remains unfinished; complete the remaining listening checks before marking slice 2 complete or advancing.
+
 The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 is next; no paid requests.
 
 ## Slices
@@ -86,6 +88,10 @@ Reflection: Not offered yet; any personal answer belongs in ignored learner-prof
 Activity mode: Planned live app/editor tour, adapted to Diana's preference.
 
 ## Revisions
+
+- Diana approved retaining the Cleaning-only 6 dB extra outer attenuation after listening. Its meaning is more distant/secondary within the same cafe, not outdoors or behind a wall. Rain and Room stay unchanged; this does not generalize the curve to other sounds. Continue outstanding Step 2 learner checks.
+
+- During slice 2 review, Diana found Cleaning too prominent at the edge and authorized a Cleaning-only listening trial: preserve the inner half and ease in an additional 6 dB reduction toward the edge. Rain/Room, pan and timing are unchanged. Await listening feedback before adopting or generalizing this curve.
 
 - npm was absent from PATH; npm 12.2.0 is installed only in ignored .local/tooling. README documents its launch command plus normal npm commands for a fresh checkout. No system-wide installation.
 - First source is an unchanged licensed Ogg recording, decoded once with mono/crossfade/calibration prepared in memory. This preserves the spec's predecoded playback approach without introducing an audio conversion dependency; WAV was a preference, not a requirement.

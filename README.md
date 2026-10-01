@@ -1,6 +1,6 @@
-# Sound Map — first listening study
+# Sound Map — cafe listening study
 
-Slice 1 only: one recorded rain layer and one movable marker. Prepared audio test, **no AI requests**. Not the complete approved product. Saved scenes, descriptions, AI interpretation, reflections and other cafe layers are not built yet.
+Slice 1 is reviewed and checkpointed; slice 2 adds rain, quiet room tone and occasional sweeping and awaits listening review. Prepared audio test, **no AI requests**. Not the complete approved product. Saved scenes, descriptions, AI interpretation and reflections are not built yet.
 
 ## Run on this computer
 
@@ -36,3 +36,13 @@ The vertical direction has no front/behind meaning. Radial distance changes volu
 The app decodes the local recording only when Play is first pressed. It reuses the same looping source during moves and Pause/Resume. Restart replaces it. No network calls happen for movement and no data is transmitted to AI.
 
 See [AUDIO_CREDITS.md](AUDIO_CREDITS.md) for the recording's CC BY-SA 3.0 terms. This browser-only first slice intentionally has no API helper yet.
+
+## Slice 2 — three-layer listening review
+
+The current app now contains Rain, Room and Cleaning. Select a marker or its small name button, then move it. Remove applies only to the selected sound; Removed sounds provides Restore at the previous position. A failed file shows Retry for that layer alone.
+
+Rain keeps the reviewed slice-1 pan/gain behavior. Room is a quiet indoor recording. Cleaning uses a real broom recording with quiet gaps; dragging during a gap changes its next audible activity. Keep rain/room fixed and move cleaning while it is audible to compare near/far clearly.
+
+The shared audio clock preserves gap timing across Pause/Resume. Restart begins all loaded layers again while keeping marker positions and removals. Recording files load independently: a slow or failed file cannot block the others. No AI, reflection, saving or interpretation is added in this slice.
+
+Run `npm test` for six focused tests and `npm run build` for the production build. Detailed slice-2 verification is in devpost/slice-2-verification.md. Human listening for a few cycles is still required before the second working checkpoint.
