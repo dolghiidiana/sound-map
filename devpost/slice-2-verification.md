@@ -1,4 +1,4 @@
-# Slice 2 verification — listening review pending
+# Slice 2 verification — passed
 
 ## Scope
 
@@ -16,16 +16,14 @@ Three recorded layers only: rain, quiet indoor room tone, occasional sweeping. N
 - Prepared durations: rain 25.897s; room 16.807s; cleaning 17.760s (8.760s recording plus 9s combined quiet gap). Fixed peak calibration 0.85 per buffer. The sum of maximum channel bounds stays below 1 without adaptive changes to other layers.
 - No page/console errors in the successful normal browser run. Desktop and narrow screenshots inspected; no horizontal overflow at 390px.
 
-## Remaining evidence
+## Diana's hands-on review — passed
 
-Diana subsequently found Cleaning too prominent at the outer edge. After an authorized Cleaning-only extra attenuation beyond half-radius (up to 6 dB extra at the edge), she reported more natural background recession and approved retaining it. The agreed interpretation is farther away inside the same cafe, not outside or behind a wall. Inner-half level, Rain, Room, pan and timing remain unchanged. Existing six tests/build and a position-grid comparison passed for the adjustment. Learner Remove/Restore and three-layer transport checks remain to finish the review.
+Diana reports convincing position changes while Rain continues underneath and natural short pauses between sweeping cycles. She approved retaining the revised Cleaning-only outer attenuation: farther away and secondary inside the same cafe, not outside or behind a wall. Rain and Room remain unchanged.
 
-Diana briefly tested the three-layer scene and reported a short natural pause between sweeping cycles, followed by resumption. During audible sweeping she could hear position changes while rain remained underneath. She then explicitly paused work for today and wants to continue the listening review later. This is partial learner evidence, not approval of the full slice. No later-stage work is authorized during the pause.
+Remove/Restore passed: Cleaning returns to its prior position without interrupting Rain or Room. Pause -> reposition -> Resume continues the scene; Restart begins the layers again while keeping positions. Diana explicitly approved Step 2 and requested Step 3 without further micro-checks.
 
-Diana must judge repetition, relative loudness, audible prominence and useful scene change. Room tone and sweeping are source-verified recordings, but neither is listener-approved yet. Mechanical continuity does not prove that repetition is unobtrusive. The test is prepared audio, not an AI interpretation.
-
-Suggested check: headphones, around 90 seconds; move cleaning near/far during an audible sweep with rain/room fixed. Try Remove/Restore and Pause/Resume during a gap. Report anything distracting before the slice is marked complete or committed.
-
+Polish follow-up: Remove's small font made it easy to miss. This is not a functional blocker. These are Diana's listening observations, not a universal acoustic guarantee. Prepared audio remains distinct from genuine AI interpretation.
 ## Reproduction/evidence
 
 `npm test`, `npm run build`; use project-local npm command in README if npm is unavailable. Ignored local harness .local/slice-2-check.cjs, detailed report .local/slice-2-verification.json and screenshots .local/slice-2-*.png remain available. Audio source/terms/hash records are in AUDIO_CREDITS.md. No subjective naturalness or exact ear-level latency is claimed.
+

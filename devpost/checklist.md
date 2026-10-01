@@ -7,9 +7,9 @@ status: approved
 
 Build mode: learn, explicitly chosen by Diana. Pause for hands-on review after each verified slice; do not advance before the current slice works and is reviewed.
 
-Session resumed at Diana's request during slice 2 listening review. Her feedback confirms natural sweeping pauses and audible positional movement with rain underneath. Full review remains unfinished; complete the remaining listening checks before marking slice 2 complete or advancing.
+Diana approved Step 2 after listening, Remove/Restore and transport checks. Continue Step 3; group technical checks and pause for meaningful product review rather than individual micro-checks.
 
-The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 is next; no paid requests.
+The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 passed, checkpoint 2eb48da; proceed to Step 3. No paid requests yet.
 
 ## Slices
 
@@ -23,7 +23,7 @@ The five slices below translate the approved technical blueprint. Learn mode and
   Learner check: On headphones, press Play and move the marker left/right and nearer/farther. Try Pause, move, Resume and Restart. Report whether movement feels immediate, smooth and creatively understandable.
   Commit: `Prove single-sound interactive map`
 
-- [ ] **2. Explore the three-layer repeating cafe**
+- [x] **2. Explore the three-layer repeating cafe**
   Becomes usable: Rain, room ambience and cleaning repeat together; one layer can move, disappear and return without disturbing others.
   Why now: Proves the approved scene's useful audible contrast and natural repetition before AI interpretation.
   PRD ref: `prd.md > Playback and Expressive Movement`, `prd.md > Removing Sounds`, `prd.md > Audio Layer Load Failure`
@@ -65,13 +65,15 @@ The five slices below translate the approved technical blueprint. Learn mode and
 
 ## Hands-on Checkpoints
 
-Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioContext checks and Diana's repeated listening review. No fixes requested. Checkpoint 50964e3. Slice 2's three-layer listening review remains required.
+Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioContext checks and Diana's repeated listening review. No fixes requested. Checkpoint 50964e3. Slice 2 listening and transport review passed.
 
-- [ ] Early usable behavior explored — slice 1 immediate/smooth movement and slice 2 natural cafe loop listening before AI integration
+- [x] Early usable behavior explored — slice 1 immediate/smooth movement and slice 2 natural cafe loop listening before AI integration
 - [ ] Integrated real interpretation and creative choices explored — slice 3 model comparison
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
+
+- [ ] Make Remove easier to notice and read: Diana found the small control too subtle. Keep the map central.
 
 - [ ] Final review complete — feedback resolved and learner confirms ready to ship
 
@@ -89,10 +91,11 @@ Activity mode: Planned live app/editor tour, adapted to Diana's preference.
 
 ## Revisions
 
-- Diana approved retaining the Cleaning-only 6 dB extra outer attenuation after listening. Its meaning is more distant/secondary within the same cafe, not outdoors or behind a wall. Rain and Room stay unchanged; this does not generalize the curve to other sounds. Continue outstanding Step 2 learner checks.
+- Diana approved retaining the Cleaning-only 6 dB extra outer attenuation after listening. Its meaning is more distant/secondary within the same cafe, not outdoors or behind a wall. Rain and Room stay unchanged; this does not generalize the curve to other sounds. Remove/Restore and transport subsequently passed; Step 2 approved.
 
-- During slice 2 review, Diana found Cleaning too prominent at the edge and authorized a Cleaning-only listening trial: preserve the inner half and ease in an additional 6 dB reduction toward the edge. Rain/Room, pan and timing are unchanged. Await listening feedback before adopting or generalizing this curve.
+- During slice 2 review, Diana found Cleaning too prominent at the edge and authorized a Cleaning-only listening trial: preserve the inner half and ease in an additional 6 dB reduction toward the edge. Rain/Room, pan and timing are unchanged. Subsequently approved for Cleaning only; do not generalize it.
 
 - npm was absent from PATH; npm 12.2.0 is installed only in ignored .local/tooling. README documents its launch command plus normal npm commands for a fresh checkout. No system-wide installation.
 - First source is an unchanged licensed Ogg recording, decoded once with mono/crossfade/calibration prepared in memory. This preserves the spec's predecoded playback approach without introducing an audio conversion dependency; WAV was a preference, not a requirement.
 - Slice 1 has no local AI helper because no AI call is needed to prove movement. Vite runs alone at the approved fixed origin; the helper arrives with real interpretation in slice 3.
+
