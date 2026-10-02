@@ -7,9 +7,9 @@ status: approved
 
 Build mode: learn, explicitly chosen by Diana. Pause for hands-on review after each verified slice; do not advance before the current slice works and is reviewed.
 
-Diana approved Step 2 after listening, Remove/Restore and transport checks. Continue Step 3; group technical checks and pause for meaningful product review rather than individual micro-checks.
+Diana approved Step 3 after the integrated writer journey review on October 2. Step 4 is next; group technical checks and pause for meaningful product review rather than individual micro-checks.
 
-The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 passed, checkpoint 2eb48da; proceed to Step 3. No paid requests yet.
+The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 passed, checkpoint 2eb48da; Step3 integration passed hands-on review; purposeful paid interpretation tests are recorded in the local ledger.
 
 ## Slices
 
@@ -48,7 +48,7 @@ The five slices below translate the approved technical blueprint. Learn mode and
   Why now: Adds the useful lasting outcome after the core creative experience works.
   PRD ref: `prd.md > Writer-Approved Reflection`, `prd.md > Save and Reopen Blueprint`, `prd.md > Saved Scenes`, `prd.md > Save Failure`
   Spec ref: `spec.md > Reflection and Writer Ownership`, `spec.md > Blueprint Repository and Saved Scenes`, `spec.md > Data Model and Lifetime`
-  Build: Add explicit Suggest reflection and use/edit/dismiss behavior, minimal change payload, needsReview flag and localStorage save/list/open. Never invoke AI automatically after map changes. Run the planned two reflection cases for each comparison model within the same total 14-call evaluation allowance.
+  Build: Add explicit Suggest reflection and use/edit/dismiss behavior, minimal change payload, needsReview flag and localStorage save/list/open. Never invoke AI automatically after map changes. Run the planned two reflection cases for each comparison model within the remaining CAD10 budget. Evaluate reflection separately; do not inherit provisional interpretation model Luna automatically. Prior extra connection/distance/integration calls are recorded and count toward the same budget.
   Verify (mechanical): Test exclusion of description/reflection/blueprint from reflection requests, stale reply protection, failure/blank save, non-blocking review and no automatic calls on map change. Round-trip all blueprint fields; reopen/edit/save retains one ID. Force storage failure, verify memory remains intact and leaving warns. Confirm no autoplay or AI request on reopening.
   Learner check: Request a suggestion intentionally, edit or reject it, move a sound and save despite needsReview. Close/reopen; verify all choices remain and repeat Save updates the same scene.
   Commit: `Save writer-owned sonic blueprints`
@@ -68,10 +68,16 @@ The five slices below translate the approved technical blueprint. Learn mode and
 Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioContext checks and Diana's repeated listening review. No fixes requested. Checkpoint 50964e3. Slice 2 listening and transport review passed.
 
 - [x] Early usable behavior explored — slice 1 immediate/smooth movement and slice 2 natural cafe loop listening before AI integration
-- [ ] Integrated real interpretation and creative choices explored — slice 3 model comparison
+- [x] Integrated real interpretation and creative choices explored — slice 3 model comparison
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
+
+- [ ] Review creative impact and demo design: Diana hears movement but the overall scene remains broadly similar; a strong atmospheric transformation is not yet demonstrated. Assess with her during polish without assuming more complex audio is the answer.
+
+- [ ] Review Rain recording: sounds exposed/direct rather than heard indoors through closed cafe windows. Treat as asset/acoustic-character feedback, separate from AI placement.
+
+- [ ] Assess repeated sweeping fatigue during final polish: Diana found it a little annoying after many test loops. Consider longer quiet gaps or less frequent activity if needed; no audio change made yet.
 
 - [ ] Make Remove easier to notice and read: Diana found the small control too subtle. Keep the map central.
 
@@ -98,4 +104,3 @@ Activity mode: Planned live app/editor tour, adapted to Diana's preference.
 - npm was absent from PATH; npm 12.2.0 is installed only in ignored .local/tooling. README documents its launch command plus normal npm commands for a fresh checkout. No system-wide installation.
 - First source is an unchanged licensed Ogg recording, decoded once with mono/crossfade/calibration prepared in memory. This preserves the spec's predecoded playback approach without introducing an audio conversion dependency; WAV was a preference, not a requirement.
 - Slice 1 has no local AI helper because no AI call is needed to prove movement. Vite runs alone at the approved fixed origin; the helper arrives with real interpretation in slice 3.
-

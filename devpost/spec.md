@@ -338,3 +338,13 @@ New implementation proposals for review: localStorage, circular mapping and init
 Build-time gates: resolve npm; pin compatible releases; choose/verify asset licences; verify provider schema/settings/account/pricing; configure conservative cost allowance; pass one-layer then three-layer listening checks. Final model and calibration follow evidence. Project name is not a technical blocker.
 
 Status is approved. Diana requested official 5-build with the recorded design priorities. References above to proposed details describe their rationale at review; these details are now approved. Feasibility claims still require the planned checks. This approval introduces no hosting or advanced audio; paid requests remain restricted to purposeful real-AI testing within the recorded budget.
+
+### Approved semantic placement revision
+
+Diana approved semantic near/mid/far -> radii0.20/0.55/0.85 after the targeted retest. Ordinary code computes initial coordinates; writer movement remains continuous. Side uses left/centre/right. See shared/distance-contract.js and devpost/distance-retest-v2.md. This supersedes model-generated raw coordinates for the next integrated interpretation build, while the v1 modules/evidence remain for comparison. Audio calibration and curves are unchanged. Final model awaits listening/product review.
+
+### October 2 — provisional model and integration
+
+Diana selected GPT-6 Luna provisionally for scene interpretation on the existing evidence; not a permanent lock-in. Use the approved semantic contract and preserve all baseline/comparison results. Reflection quality will be evaluated separately in Step4; using Sol for reflection is acceptable if it demonstrates meaningful benefit. There is no automatic interpretation-to-reflection model inheritance.
+
+Startup implementation refinement: one Node launcher owns the loopback helper3001 and Vite5173, rather than spawning two child processes. It preserves the approved browser/helper boundary and fixed origin while simplifying shutdown. Current helper uses persisted budget reservations before live calls, no automatic retries, and fail-closed unknown/missing accounting. Actual Step3 verification is recorded in slice-3-verification.md; historical planning language above is not the current build status.

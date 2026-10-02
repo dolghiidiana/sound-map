@@ -1,48 +1,41 @@
-# Sound Map — cafe listening study
+# Sound Map — a writer's scene
 
-Slice 1 is reviewed and checkpointed; slice 2 adds rain, quiet room tone and occasional sweeping and awaits listening review. Prepared audio test, **no AI requests**. Not the complete approved product. Saved scenes, descriptions, AI interpretation and reflections are not built yet.
+Local creative prototype: describe an invented scene, receive an AI-proposed sound map, press Play, and move sounds to hear the atmosphere change. Step 2 is reviewed and committed. Step 3 interpretation integration passed mechanical verification and Diana's hands-on review; it is not the complete product. Reflection and saved blueprints arrive in Step 4.
 
-## Run on this computer
+## Run
 
-Open PowerShell in this folder:
+Node24 is required. On this computer, run `start.ps1` or:
 
 ```powershell
 node .local/tooling/package/bin/npm-cli.js run dev
 ```
 
-Open **http://127.0.0.1:5173**. This session uses a project-local npm 12.2.0 because npm was absent from PATH. The ignored `.local/tooling/` is not part of the public source. `start.ps1` provides a shortcut on Diana's computer.
+For a fresh checkout with npm: `npm ci`, copy `.env.example` to `.env`, then `npm run dev`. The default template uses mock mode and needs no key. Use the prepared example button in mock mode; other descriptions deliberately fail instead of pretending a fixture is an AI interpretation.
 
-For a fresh checkout with Node 24 and npm installed:
+Open **http://127.0.0.1:5173**. The launcher runs Vite and the helper on fixed loopback ports5173/3001 in one Node process. Stop with Ctrl+C. If a port is occupied, stop the previous Sound Map process; don't silently change the origin. `npm run build` checks the browser bundle; the production bundle alone does not run the AI helper.
 
-```powershell
-npm ci
-npm run dev
-npm test
-npm run build
-```
+## Live interpretation
 
-Pinned packages: React/React DOM 19.3.0, Vite 8.3.1, React plugin 6.1.1. See package-lock.json. No API key is needed for this slice.
+The private .env contains OPENAI_API_KEY, OPENAI_MODEL=gpt-6-luna, AI_MODE=live and AI_BUDGET_CAD=10. Never prefix secrets with VITE_. Never share or commit .env. Restart after changing helper settings. Luna is provisional for interpretation based on devpost/model-comparison-v1.md and devpost/distance-retest-v2.md; reflection is not assigned a model until separately evaluated.
 
-## Listening check
+Only Create sound map makes a paid request. It sends the description plus the compact catalogue, interpretation instructions and schema to OpenAI Responses, with store:false and no conversation history or audio upload. This is not a promise of zero provider retention. Use invented/non-sensitive descriptions. Browser movement, playback and Remove/Restore do not invoke AI.
 
-1. Use headphones at a comfortable volume. The page is silent before Play.
-2. Move Rain before playing; Play uses its current position.
-3. Drag left/right, then close to/away from the central listening point. You can also focus the marker and use arrow keys (Shift for larger steps).
-4. Pause, move the marker and Resume. Audio should continue from its paused moment.
-5. Restart intentionally begins the loop again, preserving the arrangement.
+The helper checks local Origin/Host, JSON type, body/input limits, trusted catalogue IDs and provenance. It rejects malformed replies and preserves input on failure. No automatic retries or secret-bearing provider errors are displayed. A cancelled request can still be billable.
 
-The vertical direction has no front/behind meaning. Radial distance changes volume; horizontal position changes stereo pan. A 15 ms smoothing time constant avoids abrupt parameter jumps; device latency still matters. Actual perceived immediacy and naturalness require human listening. The source repeats after a prepared crossfade and is not yet a final cafe asset.
+## Budget
 
-The app decodes the local recording only when Play is first pressed. It reuses the same looping source during moves and Pause/Resume. Restart replaces it. No network calls happen for movement and no data is transmitted to AI.
+Existing local ledger `.local/ai-usage.jsonl` is ignored by Git. It records reservations and actual token usage, without scene text. One request at a time under an exclusive lock. CAD0.25 is reserved conservatively before a request; returned usage replaces the reservation with a cost estimate. Unconfirmed usage remains reserved and blocks further paid calls until reviewed. Missing/corrupt ledger fails closed, never resets spending to zero. On a fresh checkout, stay in mock mode until the prior ledger is restored or a genuinely new zero-usage ledger is deliberately initialized.
 
-See [AUDIO_CREDITS.md](AUDIO_CREDITS.md) for the recording's CC BY-SA 3.0 terms. This browser-only first slice intentionally has no API helper yet.
+CAD10 cap; review threshold CAD8. CAD estimates include conservative cache-write, FX1.60 and25% overhead allowances, not invoice-confirmed charges. Keep the ledger when resuming. Do not delete a lock/reservation to force another call without checking what happened.
 
-## Slice 2 — three-layer listening review
+## What to try
 
-The current app now contains Rain, Room and Cleaning. Select a marker or its small name button, then move it. Remove applies only to the selected sound; Removed sounds provides Restore at the previous position. A failed file shows Retry for that layer alone.
+Enter a cafe with rain on the left, someone sweeping farther away on the right and a quiet room hum. Create the map, review its description/provenance, then Play and move a marker. AI chooses initial near/mid/far categories; ordinary code maps them to radii0.20/0.55/0.85. Manual movement is continuous. Horizontal position controls stereo; radial distance controls prominence, not walls or physical room geometry.
 
-Rain keeps the reviewed slice-1 pan/gain behavior. Room is a quiet indoor recording. Cleaning uses a real broom recording with quiet gaps; dragging during a gap changes its next audible activity. Keep rain/room fixed and move cleaning while it is audible to compare near/far clearly.
+Unsupported described sounds remain removable/restorable notes. A wholly unsupported scene stays silent with an Edit option; saving is not built yet. Pause/Resume retains playback progress; Restart keeps positions. A failed audio layer can be retried independently. Sweeping repetition fatigue is recorded for later polish; its timing has not been changed.
 
-The shared audio clock preserves gap timing across Pause/Resume. Restart begins all loaded layers again while keeping marker positions and removals. Recording files load independently: a slow or failed file cannot block the others. No AI, reflection, saving or interpretation is added in this slice.
+## Verification and evidence
 
-Run `npm test` for six focused tests and `npm run build` for the production build. Detailed slice-2 verification is in devpost/slice-2-verification.md. Human listening for a few cycles is still required before the second working checkpoint.
+`npm test` and `npm run build`. Current Step3 evidence: devpost/slice-3-verification.md. Original connection/comparison reports are preserved. Browser harnesses and raw API results are local ignored evidence. Mechanical checks are not a substitute for the writer's listening review.
+
+Recordings and redistribution licences: AUDIO_CREDITS.md and public/audio/CREDITS.txt. All playback files stay local; attribution and licence obligations still apply to public distribution.

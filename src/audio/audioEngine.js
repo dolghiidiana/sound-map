@@ -44,10 +44,10 @@ export function prepareLoop(context, input, options = {}) {
 }
 
 export class AudioEngine {
-  constructor(onStatus = () => {}, onLayers = () => {}) {
+  constructor(onStatus = () => {}, onLayers = () => {}, recordings = catalogue) {
     this.onStatus = onStatus;
     this.onLayers = onLayers;
-    this.layers = new Map(catalogue.map(item => [item.id, {
+    this.layers = new Map(recordings.map(item => [item.id, {
       ...item, position: { ...item.position }, removed: false, loadStatus: 'idle',
       source: null, buffer: null, sourceStarts: 0, moveCount: 0, controller: null,
     }]));
