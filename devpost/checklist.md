@@ -33,7 +33,7 @@ The five slices below translate the approved technical blueprint. Learn mode and
   Learner check: Hear several repetitions. Move cleaning farther while keeping rain/room fixed. Report distracting repetition, clicks or weak prominence changes; try remove/restore. Fix the weak layer before proceeding.
   Commit: `Add independent repeating cafe layers`
 
-- [ ] **3. Describe a scene and hear a validated AI interpretation**
+- [x] **3. Describe a scene and hear a validated AI interpretation**
   Becomes usable: A description produces a genuine proposed arrangement with provenance and preserved unsupported notes; failure retains the original text.
   Why now: Connects real AI to the already-proven sound interaction and tests fidelity before model selection.
   PRD ref: `prd.md > Scene Interpretation and Provenance`, `prd.md > Unsupported Sounds`, `prd.md > No Playable Matches`, `prd.md > Initial Interpretation Failure`
