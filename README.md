@@ -2,6 +2,8 @@
 
 Local creative prototype: describe an invented scene, receive an AI-proposed sound map, press Play, and move sounds to hear the atmosphere change. Step 2 is reviewed and committed. Step 3 interpretation integration passed mechanical verification and Diana's hands-on review; it is not the complete product. Reflection and saved blueprints arrive in Step 4.
 
+The cafe scene is the proof-of-concept example, not the whole product. The broader vision is a writer exploring a scene through adjustable sound relationships. This build is deliberately limited to three recordings; broader audible scene coverage remains future work.
+
 ## Run
 
 Node24 is required. On this computer, run `start.ps1` or:

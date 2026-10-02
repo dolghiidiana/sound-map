@@ -66,3 +66,11 @@ Proposed evidence of value: another person can make an intentional adjustment an
 - Unsupported sounds need an honest treatment rather than silent substitution; the exact behavior belongs in PRD.
 
 Scope approved by Diana on September 24, 2026. No implementation has begun. Product behavior and technical feasibility remain to be resolved in PRD and spec; prototype evidence has not yet been collected.
+
+## Product framing — October 2 decision
+
+**The cafe scene is the proof-of-concept example, not the whole product.**
+
+Keep the writer-focused Sound Map direction. The broader vision is that a writer describes a scene or atmosphere, AI proposes sound relationships, and the writer reshapes them to explore creative choices. The current cafe is the narrow end-to-end prototype; no pivot, larger feature set or library expansion is authorized by this framing.
+
+Presentation must distinguish vision from demonstrated capability: this build plays only its three available recordings, preserves unsupported sounds as notes, and does not support arbitrary scenes audibly. The tested movement is perceptible; a dramatic atmosphere change or useful writing outcome has not yet been demonstrated. Communicate the potential without claiming those outcomes are proven.

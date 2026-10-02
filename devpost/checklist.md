@@ -73,6 +73,8 @@ Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioCon
 
 ## Final Review
 
+- [ ] Demo framing: introduce the cafe as the proof-of-concept example of the writer-focused Sound Map, clearly distinguish broader potential from the current three-recording capability, and avoid implying unproven atmospheric impact. No scope or library expansion required.
+
 - [ ] Review creative impact and demo design: Diana hears movement but the overall scene remains broadly similar; a strong atmospheric transformation is not yet demonstrated. Assess with her during polish without assuming more complex audio is the answer.
 
 - [ ] Review Rain recording: sounds exposed/direct rather than heard indoors through closed cafe windows. Treat as asset/acoustic-character feedback, separate from AI placement.
