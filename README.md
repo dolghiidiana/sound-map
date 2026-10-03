@@ -1,8 +1,18 @@
 # Sound Map — a writer's scene
 
-Local creative prototype: describe an invented scene, receive an AI-proposed sound map, press Play, and move sounds to explore their relationships. Interpretation, reflection and browser-local saved blueprints passed hands-on review. Essential polish and final user review are complete; the prototype is approved for demo preparation. Submission preparation remains.
+Sound Map is a creative perception tool for writers. A writer describes a scene, and AI proposes audible relationships using the available recordings: which sounds feel close or distant, prominent or in the background, to the left or right.
 
-The cafe scene is the proof-of-concept example, not the whole product. The broader vision is a writer exploring a scene through adjustable sound relationships. This build is deliberately limited to three recordings; broader audible scene coverage remains future work.
+The writer listens, moves or removes sounds, and explores those relationships to discover the scene they meant. They can save the arrangement and an optional reflection as a sonic blueprint—a creative reference to return to while writing.
+
+## Why this is different
+
+Most AI writing tools return more words. Sound Map uses sound as another way to perceive a scene and make creative decisions. AI proposes an interpretation; the writer remains the author, choosing what to keep, change or remove and what those choices mean.
+
+## The current proof of concept
+
+The café scene is the proof-of-concept example, not the whole product vision. This local prototype uses three recordings: rain, indoor room tone and sweeping. It rearranges available sounds; it does not generate arbitrary audio or implement broader audible scene coverage. Unsupported sounds remain silent blueprint notes rather than being replaced automatically.
+
+Interpretation, reflection and browser-local saved blueprints passed hands-on review. Essential polish and final user review are complete; the prototype is approved for demo preparation. Submission preparation remains.
 
 ## Run
 
