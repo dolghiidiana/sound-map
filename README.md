@@ -1,12 +1,12 @@
 # Sound Map — a writer's scene
 
-Local creative prototype: describe an invented scene, receive an AI-proposed sound map, press Play, and move sounds to hear the atmosphere change. Step 2 is reviewed and committed. Step 3 interpretation integration passed mechanical verification and Diana's hands-on review; it is not the complete product. Step 4 reflection and browser-local saved blueprints passed review and were approved. Final polish and submission preparation remain.
+Local creative prototype: describe an invented scene, receive an AI-proposed sound map, press Play, and move sounds to explore their relationships. Interpretation, reflection and browser-local saved blueprints passed hands-on review. Essential polish is in final review; submission preparation remains.
 
 The cafe scene is the proof-of-concept example, not the whole product. The broader vision is a writer exploring a scene through adjustable sound relationships. This build is deliberately limited to three recordings; broader audible scene coverage remains future work.
 
 ## Run
 
-Node24 is required. On this computer, run `start.ps1` or:
+Node24 is required. On this computer, open PowerShell in the project folder and run `./start.ps1`. The launcher finds the installed runtime. Alternatively, if Node is on PATH:
 
 ```powershell
 node .local/tooling/package/bin/npm-cli.js run dev
@@ -20,7 +20,7 @@ Open **http://127.0.0.1:5173**. The launcher runs Vite and the helper on fixed l
 
 The private .env contains OPENAI_API_KEY, OPENAI_MODEL=gpt-6-luna, AI_MODE=live and AI_BUDGET_CAD=10. Never prefix secrets with VITE_. Never share or commit .env. Restart after changing helper settings. Luna is provisional for interpretation based on devpost/model-comparison-v1.md and devpost/distance-retest-v2.md; Sol is provisional for reflection after its separate comparison (devpost/reflection-comparison-v1.md), configured by OPENAI_REFLECTION_MODEL=gpt-6.1-sol.
 
-Create sound map makes a paid interpretation request. Suggest reflection makes a separate paid request only when explicitly pressed; it sends changed sound labels, before/after pan and prominence, and removals, never the original description or existing reflection. It sends the description plus the compact catalogue, interpretation instructions and schema to OpenAI Responses, with store:false and no conversation history or audio upload. This is not a promise of zero provider retention. Use invented/non-sensitive descriptions. Browser movement, playback and Remove/Restore do not invoke AI.
+In live mode, Create sound map makes a paid interpretation request containing the description plus compact catalogue, interpretation instructions and schema. Suggest reflection makes a separate paid request only when explicitly pressed; it sends changed sound labels, before/after pan and prominence, and removals, never the original description or existing reflection. Both use OpenAI Responses with store:false, no conversation history and no audio upload. This is not a promise of zero provider retention. Use invented/non-sensitive descriptions. Browser movement, playback, Remove/Restore, Save and Open do not invoke AI. See PRIVACY.md.
 
 The helper checks local Origin/Host, JSON type, body/input limits, trusted catalogue IDs and provenance. It rejects malformed replies and preserves input on failure. No automatic retries or secret-bearing provider errors are displayed. A cancelled request can still be billable.
 
@@ -34,7 +34,11 @@ CAD10 cap; review threshold CAD8. CAD estimates include conservative cache-write
 
 Enter a cafe with rain on the left, someone sweeping farther away on the right and a quiet room hum. Create the map, review its description/provenance, then Play and move a marker. AI chooses initial near/mid/far categories; ordinary code maps them to radii0.20/0.55/0.85. Manual movement is continuous. Horizontal position controls stereo; radial distance controls prominence, not walls or physical room geometry.
 
-Unsupported described sounds remain removable/restorable notes. A wholly unsupported scene stays silent with an Edit option; Save blueprint without audio preserves it. Pause/Resume retains playback progress; Restart keeps positions. A failed audio layer can be retried independently. Sweeping repetition fatigue is recorded for later polish; its timing has not been changed.
+Unsupported described sounds remain removable/restorable notes. A wholly unsupported scene stays silent with an Edit option; Save blueprint without audio preserves it. Pause/Resume retains playback progress; Restart keeps positions. A failed audio layer can be retried independently. Sweeping repeats about every 24 seconds following listening review. Rain is accepted for this prototype but can sound exposed rather than heard through closed windows; distance reduces prominence without simulating a wall or window.
+
+The temporary free review preview at port5175 is separate from the standard app at5173. Saved scenes belong to their browser and exact origin: changing browser or port does not carry them over. Do not clear site data to troubleshoot missing scenes.
+
+For a concise demo outline see devpost/DEMO.md; for the code reference and learning recap open devpost/app-map.html directly in a browser. No hosting or build step is needed for that map.
 
 ## Reflection and saved scenes
 

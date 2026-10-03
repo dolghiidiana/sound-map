@@ -18,6 +18,14 @@ Evaluate existing Rain acoustic character and sweeping repetition together befor
 
 ## Still outstanding
 
+## Essential mechanical checks and documentation — October 3
+
+All 30 Node tests and production build passed after the retained timing change. An isolated browser journey verified prepared interpretation, keyboard movement, owned reflection, Save, reload, Open and update of the same blueprint ID. Only the initial mock interpretation POST occurred; no calls on movement/save/open. The temporary harness initially counted the method property instead of calling method(); correcting instrumentation made the request assertion valid. No product bug was indicated.
+
+The 390px viewport had no horizontal overflow and was visually inspected. The offline app map rendered with JavaScript disabled and was visually inspected. Standard start.ps1 started mock mode successfully on5173/3001. Six reflection ownership browser regressions passed earlier in this polish pass. No paid requests. Private .env/.local/profile files are untracked; built assets contain no tested API-key pattern (a limited scan, not a complete security audit).
+
+README, PRIVACY.md, served audio credits, DEMO.md and app-map.html are updated. App map is a reference route and a recap of the actual small timing-change activity, not a completed interactive code tour. Final free exploration/readiness confirmation is still pending. Screen/system-audio capture is deferred to video preparation and is not claimed tested. Historical pending entries below are superseded where addressed above.
+
 October 3 listening response: Diana accepts the current Rain recording for this prototype despite its exposed acoustic character. Retain that limitation; no replacement requested. She requests less frequent sweeping if simple. Cleaning's catalogue trailing gap changed from 7.5 to 14 seconds (cycle approximately 17.76 to 24.26 seconds). Leading silence, recording, level, distance curve and other layers unchanged. Await listening confirmation of this timing trial.
 
 Demo framing, final integration/journey checks, startup and licence/privacy documentation, learning wrap-up and app map. Step 5 remains incomplete. Optional visual refinement, extra recordings, advanced audio, hosting, exports and final video production are deferred.

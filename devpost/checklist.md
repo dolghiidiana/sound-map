@@ -75,15 +75,15 @@ Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioCon
 
 Polish boundary approved October 2: essential items first, optional work deferred. Evaluate Rain and sweeping before proposing changes; no automatic asset replacement or timing edits. Provide a current usage/time estimate before starting.
 
-- [ ] Demo framing: introduce the cafe as the proof-of-concept example of the writer-focused Sound Map, clearly distinguish broader potential from the current three-recording capability, and avoid implying unproven atmospheric impact. No scope or library expansion required.
+- [x] Demo framing: introduce the cafe as the proof-of-concept example of the writer-focused Sound Map, clearly distinguish broader potential from the current three-recording capability, and avoid implying unproven atmospheric impact. No scope or library expansion required.
 
 - [ ] Review creative impact and demo design: Diana hears movement but the overall scene remains broadly similar; a strong atmospheric transformation is not yet demonstrated. Assess with her during polish without assuming more complex audio is the answer.
 
-- [ ] Review Rain recording: sounds exposed/direct rather than heard indoors through closed cafe windows. Treat as asset/acoustic-character feedback, separate from AI placement.
+- [x] Review Rain recording: sounds exposed/direct rather than heard indoors through closed cafe windows. Treat as asset/acoustic-character feedback, separate from AI placement.
 
-- [ ] Assess repeated sweeping fatigue during final polish: Diana found it a little annoying after many test loops. Consider longer quiet gaps or less frequent activity if needed; no audio change made yet.
+- [x] Assess repeated sweeping fatigue during final polish: Diana found it a little annoying after many test loops. Consider longer quiet gaps or less frequent activity if needed; no audio change made yet.
 
-- [ ] Make Remove easier to notice and read: Diana found the small control too subtle. Keep the map central.
+- [x] Make Remove easier to notice and read: Diana found the small control too subtle. Keep the map central.
 
 - [ ] Final review complete — feedback resolved and learner confirms ready to ship
 
@@ -108,3 +108,11 @@ Activity mode: Planned live app/editor tour, adapted to Diana's preference.
 - npm was absent from PATH; npm 12.2.0 is installed only in ignored .local/tooling. README documents its launch command plus normal npm commands for a fresh checkout. No system-wide installation.
 - First source is an unchanged licensed Ogg recording, decoded once with mono/crossfade/calibration prepared in memory. This preserves the spec's predecoded playback approach without introducing an audio conversion dependency; WAV was a preference, not a requirement.
 - Slice 1 has no local AI helper because no AI call is needed to prove movement. Vite runs alone at the approved fixed origin; the helper arrives with real interpretation in slice 3.
+
+## October 3 essential polish evidence
+
+Retained approximately 24-second sweeping cycle after Diana's listening approval; Rain accepted for prototype, especially farther away. Remove now noticed and useful. These review items are resolved; preceding descriptions preserve the original feedback. Code checkpoint aabae12.
+
+30 tests and production build pass. Isolated mock browser save/reload/reopen/update journey passes; no POSTs from moving/saving/opening. 390px layout and offline script-free app map checked visually. Standard start.ps1 successfully starts mock mode on5173/3001. Screen/system-audio capture deferred with final video production; instructions in DEMO.md, not claimed tested.
+
+Learning recap uses the actual timing adjustment plus Diana's before/after listening. Reference code route is in app-map.html; no interactive code tour claimed. No additional coding exercise required to repeat that activity. Final whole-product exploration/readiness remains pending; Step5 not checked prematurely.
