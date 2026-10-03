@@ -4,7 +4,12 @@
 
 ## Proposed 1–3 minute journey
 
-1. Introduce the writer's question: should activity compete for attention, or recede while rain becomes more prominent?
+1. Begin with the broader writer-focused idea, then introduce the example. Suggested opening:
+
+   “Writers normally explore scenes through words—but sometimes the relationships inside a scene are easier to notice when you can hear them. Sound Map gives writers another way to perceive those relationships through sound. AI proposes an audible starting arrangement; the writer listens, moves sounds, removes what doesn't belong, and decides what the scene means.
+
+   “This café is the proof-of-concept example. Here, the writer can explore a specific choice: should activity compete for attention, or recede while rain becomes more prominent?”
+
 2. Describe the invented cafe. Show the AI arrangement and described/suggested labels; briefly show an unavailable bell note if included.
 3. Press Play. Move sweeping from nearer to farther while it is audible. Keep other layers steady so the listener can compare. Allow for its roughly 24-second cycle; do not present a quiet gap as proof of attenuation.
 4. Show that a reflection is optional and a suggestion needs explicit adoption. Use the writer's own meaning, without claiming the AI discovered their intention.
