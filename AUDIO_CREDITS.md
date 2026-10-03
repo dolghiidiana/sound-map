@@ -1,6 +1,6 @@
 # Audio provenance — cafe listening study
 
-Three recordings are included. Rain passed Diana's first-slice listening review; the combined room/rain/cleaning mix awaits the second review.
+Three recordings are included and retained after prototype listening review. On October 3, the longer sweeping cycle was accepted. Rain remains somewhat exposed for a closed-window interior; moving it farther away was acceptable for this proof of concept. This is expressive playback, not a simulation of indoor acoustics.
 
 | Field | Evidence |
 |---|---|
@@ -22,7 +22,7 @@ The codebase is separate from the recording. Do not relabel the recording as CC0
 
 ## Slice 2 additions — public CC0 previews
 
-These two recordings are candidates for the three-layer listening check, not yet listener-approved final assets. They are real recordings, not synthesized substitutes. The room layer is indoor room tone, not a claim that a busy cafe was recorded.
+These two recordings were retained after the three-layer listening review. They are real recordings, not synthesized substitutes. The room layer is indoor room tone, not a claim that a busy cafe was recorded.
 
 ### Room — leonelmail
 
@@ -41,7 +41,7 @@ These two recordings are candidates for the three-layer listening check, not yet
 - Public HQ preview downloaded: https://cdn.freesound.org/previews/792/792417_16968183-hq.mp3
 - Local file: public/audio/cleaning-randbsoundbites.mp3 (preview).
 - Creator describes a plastic indoor broom on concrete; the source was already noise-trimmed and amplified. Source page explicitly assigns CC0 1.0.
-- On-disk edits: none. Playback: mono, brief edge fades, 1.5 seconds of leading silence and 7.5 seconds of trailing silence, fixed peak calibration, independent pan/level. The resulting repeating cycle is about 17.76 seconds. The gap lengths are a first listening-test choice, not a proven natural rhythm.
+- On-disk edits: none. Playback: mono, brief edge fades, 1.5 seconds of leading silence and 14 seconds of trailing silence, fixed peak calibration, independent pan/level. The resulting repeating cycle is about 24.26 seconds. The longer gap was accepted in the October 3 listening review.
 - SHA-256: 3F27BEA8469B5A550B2BE2F6BB4E5B922693DBC1DBDFE7F1FE701E0F66BA4CBB.
 
 Both pages and CC0 terms were checked and files downloaded on 30 September 2026. CC0 permits copying, modifying and redistributing the audio, including commercial use. Credit is retained voluntarily; no endorsement is implied. Public-source HTML evidence is retained locally in ignored .local/room-source.html and .local/cleaning-source.html. No login, account action or payment was used. Rain retains its separate CC BY-SA 3.0 terms above; the collection must not be labelled wholly CC0.

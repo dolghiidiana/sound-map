@@ -89,7 +89,7 @@ export default function SceneView({ scene, onEdit }) {
         <div className="listener" aria-hidden="true"><span className="listener-point"/><span>you, listening</span></div>
         {playable.filter(s => !s.removed).map(sound => <button key={sound.id} data-sound-id={sound.id}
           className={`sound-marker ${sound.id === selected ? 'selected' : ''} ${loadStatus[sound.id] === 'error' ? 'unavailable' : ''}`}
-          aria-label={`${sound.label}: ${describePosition(sound.position)}. Use arrow keys to move.`} aria-describedby="map-help"
+          aria-label={`${sound.label}: ${describePosition(sound.position)}. ${sound.origin === 'described' ? 'Described by you' : 'AI suggestion'}. Use arrow keys to move.`} aria-describedby="map-help"
           style={{ left: `${50 + sound.position.x * 43}%`, top: `${50 + sound.position.y * 43}%` }}
           onFocus={() => setSelected(sound.id)} onClick={() => setSelected(sound.id)}
           onPointerDown={e => { e.preventDefault(); e.currentTarget.focus(); e.currentTarget.setPointerCapture(e.pointerId); setSelected(sound.id); setDragging(true); }}
