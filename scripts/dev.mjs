@@ -5,6 +5,7 @@ import { createHelper } from '../server/index.mjs';
 if(existsSync('.env'))loadEnvFile('.env');
 const config={key:process.env.OPENAI_API_KEY,model:process.env.OPENAI_MODEL||'gpt-6-luna',mode:process.env.AI_MODE||'mock',budget:Number(process.env.AI_BUDGET_CAD||10),ledger:'.local/ai-usage.jsonl',lock:'.local/ai-request.lock'};
 const helper=createHelper(config);let vite;
+config.reflectionModel=process.env.OPENAI_REFLECTION_MODEL;
 try{
  await new Promise((resolve,reject)=>{helper.once('error',reject);helper.listen(3001,'127.0.0.1',resolve);});
  vite=await createVite();await vite.listen();vite.printUrls();console.log('Scene interpretation mode: '+config.mode+'; model: '+config.model);

@@ -352,3 +352,6 @@ Startup implementation refinement: one Node launcher owns the loopback helper300
 ### Demo framing — October 2 decision
 
 Lead with the writer's purpose: explore a scene by hearing and reshaping its sound relationships. Introduce the cafe explicitly as the proof-of-concept example, not the entire product. Show the real description-to-map journey, provenance, unsupported bell note and one audible positional/prominence change. Once Step4 is implemented and reviewed, show saving and reopening the writer's choices. Close by separating the broader vision from the current three-recording limit; do not imply other acoustic environments already work or promise a dramatic mood transformation. This requires presentation clarity, not a larger library, new architecture or additional features. No pivot is approved.
+
+### October 2 — provisional reflection model
+Diana approved Sol (gpt-6.1-sol) provisionally for reflection after separate fixed-change comparisons. Luna remains the provisional scene interpreter. The small sample favors Sol's slightly more restrained treatment of limited change data, not a general superiority claim. Revisit after hands-on review if needed. Both endpoints share the persisted budget safeguards; interpretation is not retuned.

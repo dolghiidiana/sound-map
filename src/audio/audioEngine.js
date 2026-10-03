@@ -48,7 +48,7 @@ export class AudioEngine {
     this.onStatus = onStatus;
     this.onLayers = onLayers;
     this.layers = new Map(recordings.map(item => [item.id, {
-      ...item, position: { ...item.position }, removed: false, loadStatus: 'idle',
+      ...item, position: { ...item.position }, removed: !!item.removed, loadStatus: 'idle',
       source: null, buffer: null, sourceStarts: 0, moveCount: 0, controller: null,
     }]));
     this.context = null;

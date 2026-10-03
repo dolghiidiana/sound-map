@@ -2,18 +2,33 @@ import { mkdirSync, rmdirSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { buildDistanceRequest, parseDistanceResponse } from './distance-ai.mjs';
 import { reserve, settle } from './budget.mjs';
+import { buildReflectionRequest, parseReflectionResponse } from './reflection-ai.mjs';
 export class RequestError extends Error { constructor(code,message,status=503){super(message);this.code=code;this.status=status;} }
 export async function interpretLive(description, config, fetcher=fetch) {
+  const data = await requestLive(buildDistanceRequest(description,config.model),config,'interactive scene interpretation',fetcher);
+  try { return parseDistanceResponse(data,description); }
+  catch { throw new RequestError('INVALID','The AI returned a sound map we couldn’t safely use. Your description is still here — you can try again or revise it.'); }
+}
+export async function reflectLive(changes, config, fetcher=fetch) {
+  try {
+    const reflectionConfig={...config,model:config.reflectionModel};
+    const data=await requestLive(buildReflectionRequest(changes,reflectionConfig.model),reflectionConfig,'optional reflection suggestion',fetcher);
+    return parseReflectionResponse(data);
+  } catch {
+    throw new RequestError('REFLECTION_UNAVAILABLE','Reflection suggestion wasn’t available. You can add your own or save without one.');
+  }
+}
+async function requestLive(request, config, purpose, fetcher) {
   if (!config.key) throw new RequestError('KEY_MISSING','The local AI connection needs an API key. Your description is still here.');
   if (!['gpt-6-luna','gpt-6.1-sol'].includes(config.model) || config.budget!==10) throw new RequestError('CONFIG','The local AI settings need review. Your description is still here.');
-  const body=JSON.stringify({...buildDistanceRequest(description,config.model),service_tier:'default'});
+  const body=JSON.stringify({...request,service_tier:'default'});
   if(Buffer.byteLength(body)>24000)throw new RequestError('TOO_LARGE','Please shorten the scene description.',400);
   // At <=24K input bytes plus framing allowance and 2K output tokens, CAD0.25
   // covers either approved model using conservative FX and overhead allowances.
   try { mkdirSync(config.lock); } catch { throw new RequestError('BUSY','An AI request is already running or needs review. Try again later.',409); }
   try {
     const id=randomUUID();
-    try { reserve(config.ledger,id,.25,config.model,'interactive scene interpretation'); }
+    try { reserve(config.ledger,id,.25,config.model,purpose); }
     catch { throw new RequestError('BUDGET','The AI budget record needs review before another request. Your description is still here.'); }
     const start=performance.now();
     let response,data;
@@ -28,7 +43,6 @@ export async function interpretLive(description, config, fetcher=fetch) {
       throw new RequestError('UNAVAILABLE','The AI request could not be completed or its usage confirmed. Your description is still here; the budget allowance is held for review.');
     }
     if(!response.ok)throw new RequestError('UNAVAILABLE','We couldn’t create a sound map for this scene right now. Your description is still here — you can try again or revise it.');
-    try { return parseDistanceResponse(data,description); }
-    catch { throw new RequestError('INVALID','The AI returned a sound map we couldn’t safely use. Your description is still here — you can try again or revise it.'); }
+    return data;
   } finally { rmdirSync(config.lock); }
 }

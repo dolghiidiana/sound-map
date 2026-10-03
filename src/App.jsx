@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import SceneView from './components/SceneView.jsx';
+import SavedScenes from './components/SavedScenes.jsx';
 import { catalogue } from '../shared/catalogue.js';
 import { validateDistanceInterpretation } from '../shared/distance-contract.js';
 const example='Rain against the windows on my left. Someone is sweeping far away on the right. A quiet indoor hum remains.';
@@ -27,11 +28,11 @@ export default function App(){
   finally{clearTimeout(timer);if(version===generation.current)setBusy(false);}
  }
  function cancel(){generation.current++;active.current?.abort();setBusy(false);setError('Request cancelled here. Your description is still here; an already-sent AI request may still be charged.');}
- if(scene)return <SceneView key={scene.id} scene={scene} onEdit={()=>setScene(null)}/>;
+ if(scene)return <SceneView key={scene.id} scene={scene} onEdit={()=>{setDescription(scene.description);setScene(null);}}/>;
  return <main className="entry-page"><header><span className="wordmark">Sound Map<span className="wordmark-dot">·</span></span><span className="study-label">A SPACE FOR YOUR SCENE</span></header>
  <section className="scene-entry"><p className="eyebrow">START WITH A SMALL MOMENT</p><h1>What does your<br/><em>scene sound like?</em></h1><p className="entry-intro">Describe a place, a moment, the sounds around your character.<br/>Hear one possible interpretation. Then make it yours.</p>
  {config?.mode==='mock' && <p className="mode-note">Prepared test mode · no AI requests. <button className="text-action" disabled={busy} onClick={()=>setDescription(config.example)}>Use prepared example</button></p>}
  <form onSubmit={create}><label htmlFor="scene-description">Your scene</label><textarea id="scene-description" value={description} disabled={busy} maxLength={3000} onChange={e=>setDescription(e.target.value)} placeholder="A nearly empty café near closing time. Rain against the windows. Someone sweeping farther away." rows={6}/><p className="example">For example: {example}</p><div className="entry-actions"><button className="play-button" disabled={!description.trim()||busy||!config} type="submit">{busy?'Interpreting your scene…':'Create sound map'}</button>{busy&&<button className="text-action" type="button" onClick={cancel}>Cancel</button>}</div></form>
  {error&&<p className="entry-error" role="alert">{error}</p>}{!config&&error&&<button className="text-action" type="button" onClick={()=>{setError('Checking the local connection…');setConnectionAttempt(value=>value+1);}}>Check connection</button>}
- <p className="privacy-note">{config?.mode==='live'?'Creating a map sends your description and our small sound list to OpenAI. Use an invented or non-sensitive scene.':'Three recordings: rain, room tone and sweeping.'} Audio playback and movement stay on this device.</p></section></main>;
+ <p className="privacy-note">{config?.mode==='live'?'Creating a map sends your description and our small sound list to OpenAI. Use an invented or non-sensitive scene.':'Three recordings: rain, room tone and sweeping.'} Audio playback and movement stay on this device.</p><p className="prototype-note">Explore a scene through sound. This prototype starts with a small café collection: rain, room tone and sweeping. Other sounds stay as notes.</p><SavedScenes onOpen={setScene} disabled={busy}/></section></main>;
 }

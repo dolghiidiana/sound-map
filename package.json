@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "vite build",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "test:reflection-ui": "node tests/reflection-flow.browser.mjs"
   },
   "dependencies": {
     "react": "19.3.0",

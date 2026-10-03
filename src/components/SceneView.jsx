@@ -1,6 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useReducer } from 'react';
 import { AudioEngine } from '../audio/audioEngine.js';
 import { constrainPosition, describePosition } from '../../shared/mapping.js';
+import {initialSceneState,sceneReducer} from '../sceneReducer.js';
+import {makeBlueprint,saveBlueprint} from '../lib/blueprintStore.js';
+import ReflectionPanel from './ReflectionPanel.jsx';
 
 function SoundIcon({ id }) {
   if (id === 'cafe_rain') return <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true"><path d="M11 2C9 6 4 10 4 15a7 7 0 0014 0c0-5-5-9-7-13Z" stroke="currentColor" strokeWidth="1.3"/><path d="M7 16c0 2 1.4 3.5 3 3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>;
@@ -9,13 +12,28 @@ function SoundIcon({ id }) {
 }
 
 export default function SceneView({ scene, onEdit }) {
-  const [sounds, setSounds] = useState(() => scene.sounds.map(s => ({ ...s, position: { ...s.position }, removed: false })));
-  const [selected, setSelected] = useState(scene.sounds.find(s=>s.file)?.id ?? null);
-  const [edited, setEdited] = useState(false);
+  const [state,dispatch]=useReducer(sceneReducer,scene,initialSceneState);
+  const {sounds}=state;
+  const [saveMessage,setSaveMessage]=useState(''),[saveFailed,setSaveFailed]=useState(false);
+  const createdAt=useRef(scene.createdAt);
+  const [selected, setSelected] = useState(scene.sounds.find(s=>s.file&&!s.removed)?.id ?? null);
   const [status, setStatus] = useState('ready');
   const [loadStatus, setLoadStatus] = useState({});
   const [dragging, setDragging] = useState(false);
   const map = useRef(null), engine = useRef(null), frame = useRef(null), pending = useRef(null);
+  useEffect(()=>{
+    if(!state.dirty)return;
+    const warn=event=>{event.preventDefault();event.returnValue='';};
+    window.addEventListener('beforeunload',warn);
+    return()=>window.removeEventListener('beforeunload',warn);
+  },[state.dirty]);
+  function leave(){if(!state.dirty||window.confirm('Leave this scene? Unsaved changes may be lost.'))onEdit();}
+  function save(){
+    try{
+      const b=saveBlueprint(makeBlueprint({...scene,createdAt:createdAt.current},state));
+      createdAt.current=b.createdAt;dispatch({type:'saved'});setSaveFailed(false);setSaveMessage('Blueprint saved in this browser.');
+    }catch{setSaveFailed(true);setSaveMessage('We couldn’t save this blueprint yet. Your scene is still here.');}
+  }
   useEffect(() => {
     const instance = new AudioEngine(setStatus, setLoadStatus, scene.sounds.filter(s=>s.file));
     engine.current = instance;
@@ -23,10 +41,9 @@ export default function SceneView({ scene, onEdit }) {
     return () => { cancelAnimationFrame(frame.current); instance.dispose(); delete window.__soundMapDebug; };
   }, []);
   function move(id, next) {
-    setEdited(true);
     const bounded = constrainPosition(next);
     engine.current.setPosition(id, bounded);
-    setSounds(previous => previous.map(s => s.id === id ? { ...s, position: bounded } : s));
+    dispatch({type:'move',id,position:bounded});setSaveMessage('');
   }
   function point(event) {
     const rect = map.current.getBoundingClientRect(), radius = rect.width * 0.43;
@@ -50,9 +67,8 @@ export default function SceneView({ scene, onEdit }) {
     event.preventDefault(); move(sound.id, { x: sound.position.x + offsets[event.key][0], y: sound.position.y + offsets[event.key][1] });
   }
   function remove(id, removed) {
-    setEdited(true);
     if (sounds.find(s=>s.id===id)?.file) engine.current.setRemoved(id, removed);
-    setSounds(previous => previous.map(s => s.id === id ? { ...s, removed } : s));
+    dispatch({type:'remove',id,removed});setSaveMessage('');
     if (!removed) setSelected(id);
   }
   const current = sounds.find(s => s.id === selected);
@@ -61,11 +77,11 @@ export default function SceneView({ scene, onEdit }) {
   const removed = sounds.filter(s => s.removed);
   const playable = sounds.filter(s=>s.file);
   return <main>
-    <header><a className="wordmark" href="/">Sound Map<span className="wordmark-dot">·</span></a><span className="study-label">YOUR SCENE, INTERPRETED</span></header>
-    <section className="intro"><p className="eyebrow">AN INTERPRETATION, YOURS TO RESHAPE</p><h1>Listen to<br/><em>the possibility.</em></h1><p className="lede scene-description">{scene.description}</p><p className="scene-invitation">{scene.interpretation}</p><button className="text-action" onClick={()=>{if(!edited || window.confirm('Leave this arrangement? Unsaved map changes will be lost.')) onEdit();}}>Edit description</button></section>
+    <header><a className="wordmark" href="/" onClick={e=>{e.preventDefault();leave();}}>Sound Map<span className="wordmark-dot">·</span></a><span className="study-label">YOUR SCENE, INTERPRETED</span></header>
+    <section className="intro"><p className="eyebrow">AN INTERPRETATION, YOURS TO RESHAPE</p><h1>Listen to<br/><em>the possibility.</em></h1><p className="lede scene-description">{scene.description}</p><p className="scene-invitation">{scene.interpretation}</p><button className="text-action" onClick={leave}>Back to scenes</button></section>
     <section className="experience" aria-label="Scene sound map">
-      <p className="mode-note">{scene.mode === 'mock' ? 'Prepared test interpretation · no AI request' : 'AI-proposed arrangement · change it freely'}</p>
-      {playable.length === 0 && <div className="silent-scene"><h2>A scene to keep in mind</h2><p>We couldn’t find playable matches in this small sound library. Your described sounds are preserved below as notes.</p><p className="stage-note">Saving blueprints arrives in the next build step.</p></div>}
+      <p className="mode-note">{scene.mode === 'saved'?'Your saved blueprint · continue shaping it':scene.mode === 'mock' ? 'Prepared test interpretation · no AI request' : 'AI-proposed arrangement · change it freely'}</p>
+      {playable.length === 0 && <div className="silent-scene"><h2>A scene to keep in mind</h2><p>We couldn’t find playable matches in this small sound library. Your described sounds are preserved below as notes. You can save this blueprint without audio or edit the description.</p><button className="text-action" onClick={leave}>Edit description</button></div>}
       {playable.length > 0 && <>
       <div className={`sound-map ${playing ? 'is-playing' : ''} ${dragging ? 'is-dragging' : ''}`} ref={map}>
         <div className="wash" aria-hidden="true"/><div className="ring outer" aria-hidden="true"/><div className="ring inner" aria-hidden="true"/>
@@ -89,10 +105,12 @@ export default function SceneView({ scene, onEdit }) {
       <div className="selected-actions"><span>{current?.detail}</span>{current && !current.removed && <button onClick={() => remove(current.id, true)}>Remove {current.label.toLowerCase()}</button>}</div>
       <div className="load-notices" aria-live="polite">{sounds.filter(s => loadStatus[s.id] === 'error' || loadStatus[s.id] === 'loading').map(s => <p key={s.id}>{s.label} — {loadStatus[s.id] === 'loading' ? 'loading…' : <>couldn’t load. <button onClick={() => engine.current.loadLayer(s.id)}>Retry {s.label.toLowerCase()}</button></>}</p>)}</div>
       </>}
-      {sounds.some(s=>!s.file && !s.removed) && <section className="sound-notes" aria-label="Unsupported sound notes"><h2>Sound notes</h2>{sounds.filter(s=>!s.file && !s.removed).map(s=><div key={s.id}><strong>{s.label}</strong><span>Described by you · Not available in the current sound library.</span><button className="text-action" onClick={()=>remove(s.id,true)}>Remove note</button></div>)}</section>}
+      {sounds.some(s=>!s.file && !s.removed) && <section className="sound-notes" aria-label="Unsupported sound notes"><h2>Sound notes</h2>{sounds.filter(s=>!s.file && !s.removed).map(s=><div key={s.id}><strong>{s.label}</strong><span>{s.origin==='described'?'Described by you':'AI suggestion'} · Not available in the current sound library.</span><button className="text-action" onClick={()=>remove(s.id,true)}>Remove note</button></div>)}</section>}
       {removed.length > 0 && <div className="removed-sounds"><span>Removed sounds</span>{removed.map(s => <button key={s.id} onClick={() => remove(s.id, false)}>Restore {s.label.toLowerCase()}</button>)}</div>}
-      <p id="map-help" className="map-help">Drag a sound, or focus it and use the arrow keys.<br/>Closer feels more present. Farther feels quieter.</p>
+      {playable.length>0&&<p id="map-help" className="map-help">Drag a sound, or focus it and use the arrow keys.<br/>Closer feels more present. Farther feels quieter.</p>}
     </section>
-    <footer><p className="test-note">{scene.mode === 'mock' ? 'Prepared test mode' : 'Live scene interpretation'}</p><p>An expressive space, not a room simulation.</p><a href="/audio/CREDITS.txt" target="_blank" rel="noreferrer">Recordings &amp; licences</a></footer>
+    <div className="blueprint-panel"><ReflectionPanel state={state} onChange={text=>{dispatch({type:'reflection',text});setSaveMessage('');}}/>
+    <div className="save-area">{state.reflection.needsReview&&<p className="review-note">Reflection needs review. You can still save it exactly as written.</p>}<button className="play-button" onClick={save}>{saveFailed?'Retry save':playable.length?'Save blueprint':'Save blueprint without audio'}</button>{saveMessage&&<p role="status">{saveMessage}</p>}<p className="storage-note">Saved in this browser on this device. Clearing site data removes saved scenes.</p></div></div>
+    <footer><p className="test-note">{scene.mode === 'saved'?'Saved scene':scene.mode === 'mock' ? 'Prepared test mode' : 'Live scene interpretation'}</p><p>An expressive space, not a room simulation.</p><a href="/audio/CREDITS.txt" target="_blank" rel="noreferrer">Recordings &amp; licences</a></footer>
   </main>;
 }

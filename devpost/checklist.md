@@ -7,7 +7,7 @@ status: approved
 
 Build mode: learn, explicitly chosen by Diana. Pause for hands-on review after each verified slice; do not advance before the current slice works and is reviewed.
 
-Diana approved Step 3 after the integrated writer journey review on October 2. Step 4 is next; group technical checks and pause for meaningful product review rather than individual micro-checks.
+Diana approved Step 3 after the integrated writer journey review on October 2. Step 4 was approved by Diana on October 2; group technical checks and pause for meaningful product review rather than individual micro-checks.
 
 The five slices below translate the approved technical blueprint. Learn mode and Git are authorized. Slice 1 passed mechanical checks and Diana's listening review, committed as 50964e3. Slice 2 passed, checkpoint 2eb48da; Step3 integration passed hands-on review; purposeful paid interpretation tests are recorded in the local ledger.
 
@@ -72,6 +72,8 @@ Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioCon
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
+
+Polish boundary approved October 2: essential items first, optional work deferred. Evaluate Rain and sweeping before proposing changes; no automatic asset replacement or timing edits. Provide a current usage/time estimate before starting.
 
 - [ ] Demo framing: introduce the cafe as the proof-of-concept example of the writer-focused Sound Map, clearly distinguish broader potential from the current three-recording capability, and avoid implying unproven atmospheric impact. No scope or library expansion required.
 

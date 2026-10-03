@@ -2,7 +2,7 @@ import { request as httpRequest } from 'node:http';
 function localFetch(url,options={}){return new Promise((resolve,reject)=>{const req=httpRequest(url,{method:options.method||'GET',headers:options.headers},res=>{const chunks=[];res.on('data',c=>chunks.push(c));res.on('end',()=>resolve({status:res.statusCode,json:async()=>JSON.parse(Buffer.concat(chunks).toString())}));});req.on('error',reject);req.end(options.body);});}
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createHelper,preparedDescription,preparedInterpretation} from '../server/index.mjs';
-import {interpretLive} from '../server/interpret.mjs';
+import {interpretLive,reflectLive} from '../server/interpret.mjs';
 import {mkdtempSync,writeFileSync,readFileSync,rmSync}from'node:fs';import{tmpdir}from'node:os';import{join,resolve}from'node:path';
 import{readLedger}from'../server/budget.mjs';
 test('loopback route rejects origins, client models, wrong types and oversize bodies; returns prepared data honestly',async()=>{
@@ -19,7 +19,25 @@ test('loopback route rejects origins, client models, wrong types and oversize bo
   assert.equal((await post({description:' ' })).status,400);
   const result=await(await post({description:preparedDescription})).json();assert.equal(result.mode,'mock');assert.equal(result.sources.length,3);
   const status=await(await localFetch(url+'/api/status',{headers:{Host:'127.0.0.1:3001'}})).json();assert.equal('key' in status,false);
+  const changes={changes:[{label:'Sweeping',before:{pan:0,presence:.7},after:{pan:.6,presence:.1},removed:false}]};
+  const reflectionPost=(body)=>localFetch(url+'/api/reflect',{method:'POST',headers,body:JSON.stringify(body)});
+  assert.equal((await reflectionPost({...changes,description:'must not leave'})).status,400);
+  assert.equal((await reflectionPost({...changes,reflection:'must not leave'})).status,400);
+  assert.equal((await reflectionPost({...changes,model:'gpt-6.1-sol'})).status,400);
+  assert.equal((await(await reflectionPost(changes)).json()).mode,'mock');
  }finally{await new Promise(r=>server.close(r));}
+});
+test('live reflection uses its separate model and shares accounting without sending private context',async()=>{
+ const base=resolve(tmpdir()),dir=mkdtempSync(join(base,'sound-map-reflect-'));
+ const config={key:'test-only',model:'gpt-6-luna',reflectionModel:'gpt-6.1-sol',budget:10,ledger:join(dir,'ledger'),lock:join(dir,'lock')};
+ writeFileSync(config.ledger,JSON.stringify({type:'init',budgetCad:10})+'\n');
+ const changes={changes:[{label:'Sweeping',before:{pan:0,presence:.7},after:{pan:.6,presence:.1},removed:false}]};
+ try{
+  const fake=async(url,options)=>{const request=JSON.parse(options.body);assert.equal(request.model,'gpt-6.1-sol');assert.deepEqual(JSON.parse(request.input),changes);return new Response(JSON.stringify({model:'gpt-6.1-sol',service_tier:'default',status:'completed',usage:{input_tokens:200,output_tokens:40},output:[{type:'message',content:[{type:'output_text',text:JSON.stringify({suggestion:'The sweeping is quieter. This might shift attention elsewhere.'})}]}]}),{status:200});};
+  assert.ok((await reflectLive(changes,config,fake)).suggestion);assert.equal(readLedger(config.ledger).pending.length,0);
+  assert.equal(readFileSync(config.ledger,'utf8').includes('Sweeping'),false);
+  await assert.rejects(()=>reflectLive(changes,{...config,reflectionModel:undefined},fake));
+ }finally{assert.ok(dir.startsWith(base+requireSeparator()));rmSync(dir,{recursive:true,force:true});}
 });
 test('live transport settles usage, keeps scene text out of ledger and holds uncertain cost across restart',async()=>{
  const base=resolve(tmpdir()),dir=mkdtempSync(join(base,'sound-map-live-'));
