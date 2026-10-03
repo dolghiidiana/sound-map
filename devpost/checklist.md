@@ -43,7 +43,7 @@ The five slices below translate the approved technical blueprint. Learn mode and
   Learner check: Describe the cafe, hear the arrangement and reshape it. Review both models' interpretations, including unsupported and negated sounds; help choose the model based on useful interpretation quality.
   Commit: `Connect validated scene interpretation`
 
-- [ ] **4. Preserve the writer's choices and reopen them**
+- [x] **4. Preserve the writer's choices and reopen them**
   Becomes usable: Optional requested reflection stays writer-controlled; saved scenes reopen with arrangement, notes, removals and review state intact.
   Why now: Adds the useful lasting outcome after the core creative experience works.
   PRD ref: `prd.md > Writer-Approved Reflection`, `prd.md > Save and Reopen Blueprint`, `prd.md > Saved Scenes`, `prd.md > Save Failure`
