@@ -1,4 +1,6 @@
-# Step 5 — essential polish (in progress)
+# Step 5 — essential polish complete
+
+Final approval October 3: Diana explored naturally, found nothing confusing or broken, and confirmed readiness for demo preparation. No further revisions requested. Completed checks below remain valid; no code changed after them. Capture verification remains deferred to demo preparation, not silently marked passed.
 
 ## Listening decision accepted — October 3
 

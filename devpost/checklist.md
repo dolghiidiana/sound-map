@@ -53,7 +53,7 @@ The five slices below translate the approved technical blueprint. Learn mode and
   Learner check: Request a suggestion intentionally, edit or reject it, move a sound and save despite needsReview. Close/reopen; verify all choices remain and repeat Save updates the same scene.
   Commit: `Save writer-owned sonic blueprints`
 
-- [ ] **5. Verify and polish the complete creative journey**
+- [x] **5. Verify and polish the complete creative journey**
   Becomes usable: The complete local proof is coherent, tested and ready for hands-on review and demo preparation.
   Why now: Polish the approved journey after all behaviors work, without adding features.
   PRD ref: `prd.md > The Core Journey`, `prd.md > Governing Product Priority`, `prd.md > Other States`
@@ -69,7 +69,7 @@ Slice 1 passed four Node tests, production build, automated Edge/OfflineAudioCon
 
 - [x] Early usable behavior explored — slice 1 immediate/smooth movement and slice 2 natural cafe loop listening before AI integration
 - [x] Integrated real interpretation and creative choices explored — slice 3 model comparison
-- [ ] Final kick-the-tires exploration and feedback completed
+- [x] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
 
@@ -77,7 +77,7 @@ Polish boundary approved October 2: essential items first, optional work deferre
 
 - [x] Demo framing: introduce the cafe as the proof-of-concept example of the writer-focused Sound Map, clearly distinguish broader potential from the current three-recording capability, and avoid implying unproven atmospheric impact. No scope or library expansion required.
 
-- [ ] Review creative impact and demo design: Diana hears movement but the overall scene remains broadly similar; a strong atmospheric transformation is not yet demonstrated. Assess with her during polish without assuming more complex audio is the answer.
+- [x] Review creative impact and demo design: Diana hears movement but the overall scene remains broadly similar; a strong atmospheric transformation is not yet demonstrated. Assess with her during polish without assuming more complex audio is the answer.
 
 - [x] Review Rain recording: sounds exposed/direct rather than heard indoors through closed cafe windows. Treat as asset/acoustic-character feedback, separate from AI placement.
 
@@ -85,19 +85,19 @@ Polish boundary approved October 2: essential items first, optional work deferre
 
 - [x] Make Remove easier to notice and read: Diana found the small control too subtle. Keep the map central.
 
-- [ ] Final review complete — feedback resolved and learner confirms ready to ship
+- [x] Final review complete — feedback resolved and learner confirms ready to ship
 
 ## Code Tour and App Map
 
-- [ ] Learning activity complete — follow a marker move through two or three actual code locations, connecting AI versus browser responsibilities
-- [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [ ] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] Learning activity complete — actual sweeping timing change and before/after listening, with a recap connecting AI versus browser responsibilities; reference code route supplied, not toured
+- [x] Optional edit addressed through the retained timing change. Optional transfer reflection offered at handoff; no answer required or recorded.
+- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
 
-Activity and evidence: Not started.
-Route and stops: To be drawn from actual finished code.
-Edit outcome: Not offered yet.
-Reflection: Not offered yet; any personal answer belongs in ignored learner-profile.md.
-Activity mode: Planned live app/editor tour, adapted to Diana's preference.
+Activity and evidence: Sweeping repetition feedback became one gap adjustment, mechanically checked and accepted by Diana after listening. Recap and app map provided October 3.
+Route and stops: Reference only: SceneView.move -> soundParameters -> AudioEngine.setPosition/applyPosition/smooth.
+Edit outcome: 14-second trailing gap retained, approximately 24-second total cycle. No extra exercise needed.
+Reflection: Optional transfer question offered at handoff; answer not required. No personal learning claim made.
+Activity mode: Evidence-based recap of completed build practice, not an interactive code tour.
 
 ## Revisions
 
@@ -116,3 +116,7 @@ Retained approximately 24-second sweeping cycle after Diana's listening approval
 30 tests and production build pass. Isolated mock browser save/reload/reopen/update journey passes; no POSTs from moving/saving/opening. 390px layout and offline script-free app map checked visually. Standard start.ps1 successfully starts mock mode on5173/3001. Screen/system-audio capture deferred with final video production; instructions in DEMO.md, not claimed tested.
 
 Learning recap uses the actual timing adjustment plus Diana's before/after listening. Reference code route is in app-map.html; no interactive code tour claimed. No additional coding exercise required to repeat that activity. Final whole-product exploration/readiness remains pending; Step5 not checked prematurely.
+
+## Final approval — October 3
+
+Diana explored naturally, reported nothing confusing or broken, and explicitly called the prototype ready for demo preparation. Build and final review complete. The cafe remains a limited proof of concept; dramatic atmosphere transformation is not claimed. No further functionality requested. Screen/system-audio capture moves to demo preparation under the approved video deferral; this checklist does not claim capture has passed. Next official step:6-ship, not yet started.
