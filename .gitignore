@@ -6,3 +6,6 @@ node_modules/
 dist/
 .local/
 /devpost/RESUME.md
+# Local skill installation and video working material, including raw voice takes.
+/.agents/
+/devpost/video/
