@@ -14,6 +14,12 @@ The café scene is the proof-of-concept example, not the whole product vision. T
 
 Interpretation, reflection and browser-local saved blueprints passed hands-on review. Essential polish and final user review are complete; the prototype is approved for demo preparation. Submission preparation remains.
 
+## Licence
+
+Sound Map's code and associated documentation are licensed under the [MIT License](LICENSE), copyright 2026 Diana Dolghii.
+
+The third-party sound recordings are **not covered by the MIT licence**. Rain by Effib remains CC BY-SA 3.0, including its adapted playback audio; room tone by leonelmail and sweeping by randbsoundbites remain CC0 1.0. Preserve the attribution, source links and licence notices in [AUDIO_CREDITS.md](AUDIO_CREDITS.md) and [public/audio/CREDITS.txt](public/audio/CREDITS.txt) when redistributing the recordings. Third-party dependencies retain their own licences.
+
 ## Run
 
 Node24 is required. On this computer, open PowerShell in the project folder and run `./start.ps1`. The launcher finds the installed runtime. Alternatively, if Node is on PATH:
